@@ -84,7 +84,7 @@ test:
 production:
   <<: *default
   database: EasyEvent_production
-  host: 192.168.1.231
+  host: 192.168.1.230
   adapter: postgresql
   encoding: unicode
   username: postgres
