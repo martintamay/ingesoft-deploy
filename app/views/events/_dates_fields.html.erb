@@ -1,0 +1,7 @@
+<%= f.fields_for :event_dates, :wrapper => false do |detalle| %>
+  <tr class="fields">
+    <td><%= detalle.text_field :fecha_inicio, class: "datepicker form-control" %></td>
+    <td><%= detalle.text_field :fecha_fin, class: "datepicker form-control" %></td>
+    <td><%= detalle.link_to_remove '-', :class => "btn btn-default btn-raised btn-fab btn-fab-mini", title: 'Eliminar' %></td>
+  </tr>
+<% end %>

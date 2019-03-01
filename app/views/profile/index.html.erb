@@ -1,0 +1,224 @@
+<% content_for :features, "profile-page" %>
+<% content_for :class, "profile-page" %>
+
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/welcome">Easy Event</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navigation-example">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="../profile" class="btn">
+            Editar Perfil
+          </a>
+        </li>
+        <li>
+          <a href="../profile" target="_blank" class="btn btn-simple">
+            <i class="fa fa-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href="../profile" target="_blank" class="btn btn-simple">
+            <i class="fa fa-facebook-square"></i>
+          </a>
+        </li>
+        <li>
+          <a href="../profile" target="_blank" class="btn btn-simple">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="wrapper">
+  <div class="header header-filter" style="background-image: url('<%= image_path("portada2.jpg") %>');">
+  </div>
+  <div class="main main-raised">
+    <div class="profile-content">
+      <div class="container">
+        <div class="row">
+          <div class="profile">
+            <div class="avatar">
+              <%= image_tag("logoUni.jpg",alt: "Circle Raised",class: "img-circle img-responsive")%>
+            </div>
+            <div class="container">
+              <div class="row"> 
+                <div class="col-sm-1"></div>
+                <div class="col-sm-10" align="center">
+                  <div class="name" >
+                    <h3 class="title">Universidad Nacional de Itapúa</h3>
+                    <h6>Universidad</h6>
+                    <h6 ><a href="http://uni.edu.py/"> uni.edu.py</a>  </h6>
+                  </div>
+                </div>
+                <div class="col-sm-1" align="left">
+                  <a href="/events/new" class="btn btn-primary btn-raised btn-fab btn-round">
+                    <i class="material-icons">add</i>
+                 </a>
+                </div>  
+              </div>                                        
+            </div>
+          </div>
+          <div class="description text-center">
+            <p>Una de las Universidades más importantes de la región, pionera en la formación de profesionales capacitados para las exigencias del mercado actual.</p>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+              <div class="profile-tabs">
+                <div class="nav-align-center">
+                  <ul class="nav nav-pills red" role="tablist">
+                    <li class="active">
+                      <a href="#proximos" role="tab" data-toggle="tab">
+                        <i class="material-icons" align="center">event</i>
+                        Próximos
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#suscripciones" role="tab" data-toggle="tab">
+                        <i class="material-icons">list</i>Suscripciones
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#borradores" role="tab" data-toggle="tab">
+                        <i class="material-icons">save</i>Borradores
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#anteriores" role="tab" data-toggle="tab">
+                        <i class="material-icons">history</i>Anteriores
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- End Profile Tabs -->
+            </div>
+            <div class="tab-content gallery">
+              <div class="tab-pane active" id="proximos">
+                <div class="row">
+                  <% @eventos.each do |event| %>
+                    <div class="col-md-4 col-sm-4">
+                      <div class="card">
+                        <div class="thumbnail">
+                          <%= image_tag("proximo1.jpg") %>
+                        </div>
+                        <div class="card-body">
+                          <a href="/landing">
+                            <h4><%= event.nombre %></h4>  
+                          </a>
+                          <p class="card-text"> <%= event.descripcion %></p>
+                        </div>
+                      </div>
+                      <br>  
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <div class="tab-pane text-center" id="suscripciones">
+                <div class="row">
+                  <% @eventos.each do |event| %>
+                    <div class="col-md-4 col-sm-4">
+                      <div class="card">
+                        <div class="thumbnail">
+                          <%= image_tag("suscripciones3.jpg", height: '50') %>
+                        </div>
+                        <div class="card-body">
+                          <a href="/landing">
+                            <h4><%= event.nombre %></h4>  
+                          </a>
+                          <p class="card-text"> <%= event.descripcion %></p>
+                        </div>
+                      </div>
+                      <br>  
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <div class="tab-pane text-center" id="borradores">
+                <div class="row">
+                  <% @eventos.each do |event| %>
+                    <div class="col-md-4 col-sm-4">
+                      <div class="card">
+                        <div class="thumbnail">
+                          <%= image_tag("borrador3.jpg", height: '50') %>
+                        </div>
+                        <div class="card-body">
+                          <a href="/landing">
+                            <h4><%= event.nombre %></h4>  
+                          </a>
+                          <p class="card-text"> <%= event.descripcion %></p>
+                        </div>
+                      </div>
+                      <br>  
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+              <div class="tab-pane text-center" id="anteriores">
+                <div class="row">
+                  <% @eventos.each do |event| %>
+                    <div class="col-md-4 col-sm-4">
+                      <div class="card">
+                        <div class="thumbnail">
+                          <%= image_tag("anterior2.jpg", height: '50') %>
+                        </div>
+                        <div class="card-body">
+                          <a href="/landing">
+                            <h4><%= event.nombre %></h4>  
+                          </a>
+                          <p class="card-text"> <%= event.descripcion %></p>
+                        </div>
+                      </div>
+                      <br>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">
+      <nav class="pull-left">
+        <ul>
+          <li>
+            <a href="/events">
+              Eventos
+            </a>
+          </li>
+          <li>
+            <a href="/users/sign_up">
+               Registrate
+            </a>
+          </li>
+          <li>
+            <a href="/welcome">
+               Conocenos
+            </a>
+          </li>
+          <li>
+            <a href="/welcome">
+              Contacto
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <div class="copyright pull-right">
+          &copy; 2019, made by Easy Event
+      </div>
+    </div>
+  </footer>
+</div>

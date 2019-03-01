@@ -1,0 +1,24 @@
+<%= form_tag(events_path, method: :get) do %>
+	<div class="row" style="background-color: #ffffff">
+	<div class="col-md-4">
+		<div class="form-group">
+			<%= select_tag(:event_type_id, options_for_select(@tipo_eventos.collect { |r| [r.nombre, r.id ]}, selected: params[:param1]), {class: "form-control dropdown", id: "tipo_select", prompt: 'Seleccione un tipo de evento'})%>
+		</div>
+	</div>
+	  <div class="col-md-4">
+	    <div class="form-group">
+	    	<%= text_field_tag(:ubicacion, (params[:param2]), placeholder: 'Ciudad', class: 'form-control', id: "ciudad_txtfield") %>
+	    </div>
+	  </div>
+	  <div class="col-md-4">
+	    <div class="form-group">
+	        <%= text_field_tag(:fecha_inicio, (params[:param3] or Time.now), placeholder: 'Fecha', class: 'form-control datepicker', id: "fecha_txtfield") %>
+	    </div>
+	  </div>
+	</div>
+
+	  <div align="center">
+	  	<a class="btn btn-raised btn-primary" onclick="showResults()">EXPLORAR</a>
+	  	
+	  </div>
+<% end -%>

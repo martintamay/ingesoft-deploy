@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div align="left">
+      <div class="col-sm-6">
+          <h3>Privacidad del Evento</h3>
+        <div class="radio">
+          <label>
+            <%= f.radio_button :publico, 'publico', :checked => true%>
+            Público
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <%= f.radio_button :publico, 'Privado'%>
+            Privado
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div align="left">
+      <div class="col-sm-6">
+          <h3>Tipo de Evento</h3>
+          <%= f.select :event_type_id ,options_for_select(@tipos_eventos.collect { |c| [c.nombre, c.id ]}, @tipo_evento),  {prompt: 'Seleccione un tipo de evento', include_blank: false},class: "form-control dropdown", selected: @event_type_id%>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div align="left">
+      <div class="col-sm-6">
+          <h3>Categoría del Evento</h3>
+          <%= f.select :event_category_id ,options_for_select(@categorias_eventos.collect { |c| [c.nombre, c.id ]}, @categoria_evento),  {prompt: 'Seleccione una categoria del evento', include_blank: false},class: "form-control", selected: @event_category_id%>
+      </div>
+    </div>
+  </div>
+</div>

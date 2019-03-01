@@ -1,0 +1,73 @@
+<% content_for :features, "template-page" %>
+<% content_for :class, "template-page" %>
+
+<!-- Navbar will come here -->
+<nav class="navbar navbar-transparent navbar-absolute">
+  <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://www.creative-tim.com">Easy Event</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="navigation-example">
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <%= link_to('REGISTRARSE', new_user_registration_path, class: :"btn") %> 
+            
+          </li> 
+          <li>
+            <%= link_to('INICIAR SESION', new_user_session_path, class: :"btn") %>
+          </li>
+        </ul>
+      </div>
+  </div>
+</nav>
+<!-- end navbar -->
+
+<div class="wrapper">
+	<div class="header" style="background-image: url('<%= image_path("/assets/imac.jpg") %>');">
+		<div class="section">
+	      <div class="container">
+	      	<h1 style="color: #ffffff;">Explorar Eventos <small>busqueda avanzada</small></h1>
+	      	<%=render(partial: 'events/filters') %>
+	      	<div align="center">
+	      	</div>
+	      </div>
+		</div>
+	</div>
+	<!-- you can use the class main-raised if you want the main area to be as a page with shadows -->
+	<div class="main main-raised">
+		<div class="container">
+			<!-- here you can add your content -->
+			<div align="center">
+				<h4>Resultados de la busqueda</h4>
+			</div>
+			<% @eventos.each do |event| %>
+				<div class="col-md-4 col-sm-4">
+					<div class="card">
+						<div class="thumbnail">
+							<%= image_tag("fashion.jpg", height: '50') %>
+						</div>
+						<div class="card-body">
+							<a href="/landing">
+								<h4><%= event.nombre %></h4>	
+							</a>
+							<p class="card-text"><%= event.descripcion %></p>
+						</div>
+					</div>
+					<br>	
+				</div>
+		      <tr>
+		    <% end %>
+			<br>
+		</div>
+		<br>
+	</div>
+	<br>
+</div>

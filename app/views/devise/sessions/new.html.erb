@@ -1,0 +1,97 @@
+<% content_for :features, "signup-page" %>
+<% content_for :class, "signup-page" %>
+
+
+<nav class="navbar navbar-transparent navbar-absolute">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="http://www.creative-tim.com">Easy Event</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="navigation-example">
+          <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="../components-documentation.html" class="btn" target="_blank">
+              Siguenos
+            </a>
+          </li>
+          <li>
+               <%= link_to('Registrarse', new_user_registration_path, class: :"btn") %>
+          </li>
+              <li>
+                  <a href="https://twitter.com/CreativeTim" target="_blank" class="btn btn-simple">
+            <i class="fa fa-twitter"></i>
+          </a>
+              </li>
+              <li>
+                  <a href="https://www.facebook.com/CreativeTim" target="_blank" class="btn btn-simple">
+            <i class="fa fa-facebook-square"></i>
+          </a>
+              </li>
+        <li>
+                  <a href="https://api.instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=code" target="_blank" class="btn btn-simple">
+            <i class="fa fa-instagram"></i>
+          </a>
+              </li>
+          </ul>
+        </div>
+    </div>
+  </nav>
+
+  <div class="wrapper">
+  <div class="header header-filter" style="background-image: url('<%= image_path("/assets/smartphone.jpg") %>'); background-size: cover; background-position: top center;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+          <div class="card card-signup">
+             <%= form_for(resource, as: resource_name, url: session_path(resource_name),validate: true,class: "form" ) do |f| %>
+
+             <div class="header header-primary text-center">
+                <h4>Iniciar Sesión</h4>
+                <div class="social-line">
+									<%= link_to user_facebook_omniauth_authorize_path, class: "btn btn-just-icon" do %>
+										<i class="fa fa-facebook-square"></i>
+									<% end %>
+                  <a href="/users/auth/google_oauth2" class="btn btn-just-icon">
+                    <i class="fa fa-google"></i>
+                  </a>
+                </div>
+             </div>
+             <div class="content">
+
+               <div class="input-group">
+                 <span class= "input-group-addon">
+                 <i class="material-icons">email</i>
+                 </span>
+                 <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "email...", class: "form-control"%>
+
+               </div>
+
+                <div class="input-group">
+                <span class="input-group-addon">
+                  <i class="material-icons">lock_outline</i>
+                </span>
+                <%= f.password_field :password, autocomplete: "off", placeholder: "Contraseña...", class: "form-control"%>
+
+               </div>
+
+
+                <div class="footer text-center">
+                     <%= f.submit "Continuar", class: "btn btn-primary btn-wd btn- lg"%>
+                </div>
+           </div>
+          <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>

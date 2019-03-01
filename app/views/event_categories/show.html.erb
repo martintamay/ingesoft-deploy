@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @event_category.nombre %>
+</p>
+
+<p>
+  <strong>Descripcion:</strong>
+  <%= @event_category.descripcion %>
+</p>
+
+<%= link_to 'Edit', edit_event_category_path(@event_category) %> |
+<%= link_to 'Back', event_categories_path %>

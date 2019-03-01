@@ -1,0 +1,13 @@
+I"£(function() {
+  $(function(){
+	$(".owl-carousel").owlCarousel({
+		loop: true,
+		margin:10,
+		autoplay: true,
+		autoplayHoverPause: true
+	});
+});;
+
+
+}).call(this);
+:ET

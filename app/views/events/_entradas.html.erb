@@ -1,0 +1,38 @@
+<h4>Periodo del evento</h4>
+<table id="detalles", class="table">
+	<thead>
+		<tr>
+			<th>Fecha y hora de inicio</th>
+			<th>Fecha y hora de finalizacion</th>
+	</tr>
+	</thead>
+	<tbody>
+	<%= render :partial => 'dates_fields', :locals => { :f => f }%>
+	</tbody>
+</table>
+<tr>
+	<div align="left">
+		<%= f.link_to_add "+", :event_dates, :data => { :target => "#detalles" },  :class => "btn btn-primary btn-raised btn-fab btn-fab-mini", title: 'Agregar detalle', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'%>
+	</div>
+		
+</tr>
+
+<h4>Configuración de entradas</h4>
+<table id="detalles2", class="table">
+	<thead>
+		<tr>
+			<th>Acceso</th>
+			<th>Cantidad</th>
+			<th>Precio</th>
+	</tr>
+	</thead>
+	<tbody>
+	<%= render :partial => 'tickets_fields', :locals => { :f => f }%>
+	</tbody>
+</table>
+<tr>
+	<div align="left">
+		<%= f.link_to_add "+", :event_tickets, :data => { :target => "#detalles2" },  :class => "btn btn-primary btn-raised btn-fab btn-fab-mini", title: 'Agregar detalle', 'data-toggle' => 'tooltip', 'data-placement' => 'rigth'%>
+	</div>
+		
+</tr>

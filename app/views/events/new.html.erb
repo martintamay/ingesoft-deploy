@@ -1,0 +1,99 @@
+<% content_for :features, "template-page" %>
+<% content_for :class, "template-page" %>
+
+<!-- Navbar will come here -->
+<nav class="navbar navbar-transparent navbar-absolute">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navigation-example">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">Easy Event</a>
+		</div>
+		<div class="collapse navbar-collapse" id="navigation-example">
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<%= link_to('CERRAR SESION', destroy_user_session_path, method: :delete, class: :"btn") %>	
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>	
+<!-- end navbar -->
+
+<div class= "wrapper">
+	<div class="section">
+	</div>
+	<div class="main main-raised">
+	    <div class="container">  
+			<h3 align="left">Crear Evento</h3>
+			<div class="col-md-12">
+				<!-- Tabs with icons on Card -->
+				<div class="card card-nav-tabs">
+					<div class="header header-default">
+						<div class="nav-tabs-navigation">
+							<div class="nav-tabs-wrapper">
+								<ul class="nav nav-tabs" data-tabs="tabs">
+									<li class="active">
+										<a href="#profile" data-toggle="tab" aria-expanded="true">
+											<i class="material-icons">description</i>GENERAL
+										<div class="ripple-container"></div></a>
+									</li>
+									<li class="">
+										<a href="#messages" data-toggle="tab" aria-expanded="false">
+											<i class="material-icons">credit_card</i>ENTRADAS
+										<div class="ripple-container"></div></a>
+									</li>
+									<li class="">
+										<a href="#settings" data-toggle="tab" aria-expanded="false">
+											<i class="material-icons">build</i>AJUSTES
+										<div class="ripple-container"></div></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="content">
+						<%= nested_form_for(@event, html: {class: "form-horizontal", role: "form"}) do |f| %>
+							<% if @event.errors.any? %>
+			    				<div id="error_explanation">
+				     				<h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+				      				<ul>
+				      					<% @event.errors.full_messages.each do |message| %>
+				        					<li><%= message %></li>
+				      					<% end %>
+				      				</ul>
+			    				</div>
+			  				<% end %>
+							<div class="tab-content text-center">
+								<div class="tab-pane active" id="profile">
+									<%= render 'general', event: @event, :f =>f %>
+								</div>
+								<div class="tab-pane" id="messages">
+									<%= render 'entradas', event: @event, :f =>f %>
+								</div>
+								<div class="tab-pane" id="settings">
+									<%= render 'ajustes', event: @event, :f =>f %>
+								</div>
+							</div>
+							<div align="right">
+								<%= link_to 'Cancelar' , events_path , class: "btn btn-default btn-raised" %>
+				          		<%= f.button :submit, class: "btn btn-grey btn-raised", "data-toggle" => "tooltip", "data-placement" => "top", "title" => "Guardar" do %>Guardar
+				          		<% end %>
+				        
+				          		<%= f.button :submit, class: "btn btn-primary btn-raised", "data-toggle" => "tooltip", "data-placement" => "top", "title" => "Publicar" do %>Publicar
+				          		<% end %>
+							</div>
+						<% end %>
+						<!-- Fin del formulario-->
+					</div>
+				</div>
+				<!-- End Tabs with icons on Card -->
+			</div>	
+		</div>
+	</div>
+</div>

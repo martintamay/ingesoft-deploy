@@ -1,0 +1,8 @@
+<%= f.fields_for :event_tickets, :wrapper => false do |detalle| %>
+  <tr class="fields">
+    <td><%= detalle.text_field :acceso, class: "form-control" %></td>
+    <td><%= detalle.text_field :cantidad, class: "form-control" %></td>
+    <td><%= detalle.number_field :precio, class: "form-control" %></td>
+    <td><%= detalle.link_to_remove '-', :class => "btn btn-default btn-raised btn-fab btn-fab-mini", title: 'Eliminar' %></td>
+  </tr>
+<% end %>
